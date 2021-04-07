@@ -53,6 +53,14 @@
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function set_custom_element_data(node, prop, value) {
+        if (prop in node) {
+            node[prop] = value;
+        }
+        else {
+            attr(node, prop, value);
+        }
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -146,27 +154,10 @@
         }
     }
     const outroing = new Set();
-    let outros;
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
             block.i(local);
-        }
-    }
-    function transition_out(block, local, detach, callback) {
-        if (block && block.o) {
-            if (outroing.has(block))
-                return;
-            outroing.add(block);
-            outros.c.push(() => {
-                outroing.delete(block);
-                if (callback) {
-                    if (detach)
-                        block.d(1);
-                    callback();
-                }
-            });
-            block.o(local);
         }
     }
 
@@ -175,9 +166,6 @@
         : typeof globalThis !== 'undefined'
             ? globalThis
             : global);
-    function create_component(block) {
-        block && block.c();
-    }
     function mount_component(component, target, anchor, customElement) {
         const { fragment, on_mount, on_destroy, after_update } = component.$$;
         fragment && fragment.m(target, anchor);
@@ -414,6 +402,7 @@
     class Preview extends SvelteElement {
     	constructor(options) {
     		super();
+    		this.shadowRoot.innerHTML = `<style>.preview{color:green}</style>`;
 
     		init(
     			this,
@@ -445,7 +434,7 @@
 
     function create_fragment(ctx) {
     	let ha_card;
-    	let preview;
+    	let octoprint_card_preview;
     	let t0;
     	let p;
     	let b;
@@ -454,13 +443,11 @@
     	let t2;
     	let t3_value = /*state*/ ctx[0]?.state + "";
     	let t3;
-    	let current;
-    	preview = new Preview({ $$inline: true });
 
     	const block = {
     		c: function create() {
     			ha_card = element("ha-card");
-    			create_component(preview.$$.fragment);
+    			octoprint_card_preview = element("octoprint-card-preview");
     			t0 = space();
     			p = element("p");
     			b = element("b");
@@ -468,8 +455,10 @@
     			t2 = text(": ");
     			t3 = text(t3_value);
     			this.c = noop;
-    			add_location(b, file, 20, 5, 492);
-    			add_location(p, file, 20, 2, 489);
+    			add_location(octoprint_card_preview, file, 19, 2, 490);
+    			add_location(b, file, 20, 5, 522);
+    			add_location(p, file, 20, 2, 519);
+    			set_custom_element_data(ha_card, "class", "parent");
     			add_location(ha_card, file, 18, 0, 463);
     		},
     		l: function claim(nodes) {
@@ -477,31 +466,22 @@
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ha_card, anchor);
-    			mount_component(preview, ha_card, null);
+    			append_dev(ha_card, octoprint_card_preview);
     			append_dev(ha_card, t0);
     			append_dev(ha_card, p);
     			append_dev(p, b);
     			append_dev(b, t1);
     			append_dev(p, t2);
     			append_dev(p, t3);
-    			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			if ((!current || dirty & /*state*/ 1) && t1_value !== (t1_value = /*state*/ ctx[0]?.attributes?.friendly_name + "")) set_data_dev(t1, t1_value);
-    			if ((!current || dirty & /*state*/ 1) && t3_value !== (t3_value = /*state*/ ctx[0]?.state + "")) set_data_dev(t3, t3_value);
+    			if (dirty & /*state*/ 1 && t1_value !== (t1_value = /*state*/ ctx[0]?.attributes?.friendly_name + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*state*/ 1 && t3_value !== (t3_value = /*state*/ ctx[0]?.state + "")) set_data_dev(t3, t3_value);
     		},
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(preview.$$.fragment, local);
-    			current = true;
-    		},
-    		o: function outro(local) {
-    			transition_out(preview.$$.fragment, local);
-    			current = false;
-    		},
+    		i: noop,
+    		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(ha_card);
-    			destroy_component(preview);
     		}
     	};
 

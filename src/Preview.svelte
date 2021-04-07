@@ -4,3 +4,9 @@
 </script>
 
 <div class="preview">Content Goes here!</div>
+
+<style>
+  .preview {
+    color: green;
+  }
+</style>

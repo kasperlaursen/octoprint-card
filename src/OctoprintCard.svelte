@@ -20,16 +20,13 @@
   });
 </script>
 
-<ha-card>
-  <Preview />
+<ha-card class="parent">
+  <octoprint-card-preview />
   <p><b>{state?.attributes?.friendly_name}</b>: {state?.state}</p>
 </ha-card>
 
 <style>
   p {
     color: red;
-  }
-  div {
-    background: var(--primary-color);
   }
 </style>

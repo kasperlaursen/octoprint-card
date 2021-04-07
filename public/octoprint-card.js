@@ -352,27 +352,181 @@
     const file$1 = "src/Preview.svelte";
 
     function create_fragment$1(ctx) {
-    	let div;
+    	let div4;
+    	let b0;
+    	let t0_value = /*state*/ ctx[0].currentState + "";
+    	let t0;
+    	let t1;
+    	let b1;
+    	let t2_value = /*state*/ ctx[0].jobPercentage + "";
+    	let t2;
+    	let t3;
+    	let t4;
+    	let div0;
+    	let span0;
+    	let t6;
+    	let b2;
+    	let t7_value = /*state*/ ctx[0].toolActual + "";
+    	let t7;
+    	let t8;
+    	let t9_value = /*state*/ ctx[0].toolTarget + "";
+    	let t9;
+    	let t10;
+    	let t11;
+    	let div1;
+    	let span1;
+    	let t13;
+    	let b3;
+    	let t14_value = /*state*/ ctx[0].bedActual + "";
+    	let t14;
+    	let t15;
+    	let t16_value = /*state*/ ctx[0].bedTarget + "";
+    	let t16;
+    	let t17;
+    	let t18;
+    	let div2;
+    	let ha_icon0;
+    	let t19;
+    	let span2;
+    	let t20_value = /*state*/ ctx[0].timeElapsed + "";
+    	let t20;
+    	let t21;
+    	let t22;
+    	let div3;
+    	let ha_icon1;
+    	let t23;
+    	let span3;
+    	let t24_value = /*state*/ ctx[0].timeRemaining + "";
+    	let t24;
+    	let t25;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
-    			div.textContent = "Content Goes here!";
+    			div4 = element("div");
+    			b0 = element("b");
+    			t0 = text(t0_value);
+    			t1 = space();
+    			b1 = element("b");
+    			t2 = text(t2_value);
+    			t3 = text("%");
+    			t4 = space();
+    			div0 = element("div");
+    			span0 = element("span");
+    			span0.textContent = "Tool:";
+    			t6 = space();
+    			b2 = element("b");
+    			t7 = text(t7_value);
+    			t8 = text("°C / ");
+    			t9 = text(t9_value);
+    			t10 = text("°C");
+    			t11 = space();
+    			div1 = element("div");
+    			span1 = element("span");
+    			span1.textContent = "Bed:";
+    			t13 = space();
+    			b3 = element("b");
+    			t14 = text(t14_value);
+    			t15 = text("°C / ");
+    			t16 = text(t16_value);
+    			t17 = text("°C");
+    			t18 = space();
+    			div2 = element("div");
+    			ha_icon0 = element("ha-icon");
+    			t19 = space();
+    			span2 = element("span");
+    			t20 = text(t20_value);
+    			t21 = text(" Elapsed");
+    			t22 = space();
+    			div3 = element("div");
+    			ha_icon1 = element("ha-icon");
+    			t23 = space();
+    			span3 = element("span");
+    			t24 = text(t24_value);
+    			t25 = text(" Remaining");
     			this.c = noop;
-    			attr_dev(div, "class", "preview");
-    			add_location(div, file$1, 4, 0, 78);
+    			attr_dev(b0, "class", "current-state");
+    			add_location(b0, file$1, 7, 2, 127);
+    			attr_dev(b1, "class", "print-percentage");
+    			add_location(b1, file$1, 8, 2, 179);
+    			add_location(span0, file$1, 10, 4, 259);
+    			add_location(b2, file$1, 11, 4, 282);
+    			attr_dev(div0, "class", "tool");
+    			add_location(div0, file$1, 9, 2, 236);
+    			add_location(span1, file$1, 14, 4, 366);
+    			add_location(b3, file$1, 15, 4, 388);
+    			attr_dev(div1, "class", "bed");
+    			add_location(div1, file$1, 13, 2, 344);
+    			set_custom_element_data(ha_icon0, "icon", "mdi:clock-start");
+    			add_location(ha_icon0, file$1, 18, 4, 474);
+    			add_location(span2, file$1, 19, 4, 513);
+    			attr_dev(div2, "class", "elapsed");
+    			add_location(div2, file$1, 17, 2, 448);
+    			set_custom_element_data(ha_icon1, "icon", "mdi:clock-end");
+    			add_location(ha_icon1, file$1, 22, 4, 593);
+    			add_location(span3, file$1, 23, 4, 630);
+    			attr_dev(div3, "class", "remaining");
+    			add_location(div3, file$1, 21, 2, 565);
+    			attr_dev(div4, "class", "preview");
+    			add_location(div4, file$1, 6, 0, 103);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div4, anchor);
+    			append_dev(div4, b0);
+    			append_dev(b0, t0);
+    			append_dev(div4, t1);
+    			append_dev(div4, b1);
+    			append_dev(b1, t2);
+    			append_dev(b1, t3);
+    			append_dev(div4, t4);
+    			append_dev(div4, div0);
+    			append_dev(div0, span0);
+    			append_dev(div0, t6);
+    			append_dev(div0, b2);
+    			append_dev(b2, t7);
+    			append_dev(b2, t8);
+    			append_dev(b2, t9);
+    			append_dev(b2, t10);
+    			append_dev(div4, t11);
+    			append_dev(div4, div1);
+    			append_dev(div1, span1);
+    			append_dev(div1, t13);
+    			append_dev(div1, b3);
+    			append_dev(b3, t14);
+    			append_dev(b3, t15);
+    			append_dev(b3, t16);
+    			append_dev(b3, t17);
+    			append_dev(div4, t18);
+    			append_dev(div4, div2);
+    			append_dev(div2, ha_icon0);
+    			append_dev(div2, t19);
+    			append_dev(div2, span2);
+    			append_dev(span2, t20);
+    			append_dev(span2, t21);
+    			append_dev(div4, t22);
+    			append_dev(div4, div3);
+    			append_dev(div3, ha_icon1);
+    			append_dev(div3, t23);
+    			append_dev(div3, span3);
+    			append_dev(span3, t24);
+    			append_dev(span3, t25);
     		},
-    		p: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*state*/ 1 && t0_value !== (t0_value = /*state*/ ctx[0].currentState + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*state*/ 1 && t2_value !== (t2_value = /*state*/ ctx[0].jobPercentage + "")) set_data_dev(t2, t2_value);
+    			if (dirty & /*state*/ 1 && t7_value !== (t7_value = /*state*/ ctx[0].toolActual + "")) set_data_dev(t7, t7_value);
+    			if (dirty & /*state*/ 1 && t9_value !== (t9_value = /*state*/ ctx[0].toolTarget + "")) set_data_dev(t9, t9_value);
+    			if (dirty & /*state*/ 1 && t14_value !== (t14_value = /*state*/ ctx[0].bedActual + "")) set_data_dev(t14, t14_value);
+    			if (dirty & /*state*/ 1 && t16_value !== (t16_value = /*state*/ ctx[0].bedTarget + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*state*/ 1 && t20_value !== (t20_value = /*state*/ ctx[0].timeElapsed + "")) set_data_dev(t20, t20_value);
+    			if (dirty & /*state*/ 1 && t24_value !== (t24_value = /*state*/ ctx[0].timeRemaining + "")) set_data_dev(t24, t24_value);
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div4);
     		}
     	};
 
@@ -387,22 +541,40 @@
     	return block;
     }
 
-    function instance$1($$self, $$props) {
+    function instance$1($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("octoprint-card-preview", slots, []);
-    	const writable_props = [];
+    	
+    	let { state = {} } = $$props;
+    	const writable_props = ["state"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<octoprint-card-preview> was created with unknown prop '${key}'`);
     	});
 
-    	return [];
+    	$$self.$$set = $$props => {
+    		if ("state" in $$props) $$invalidate(0, state = $$props.state);
+    	};
+
+    	$$self.$capture_state = () => ({ state });
+
+    	$$self.$inject_state = $$props => {
+    		if ("state" in $$props) $$invalidate(0, state = $$props.state);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [state];
     }
 
     class Preview extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>.preview{color:green}</style>`;
+
+    		this.shadowRoot.innerHTML = `<style>.preview{background:var(--primary-color);border-radius:var(--ha-card-border-radius, 4px)
+      var(--ha-card-border-radius, 4px) 0 0;padding:4px;color:var(--text-primary-color)}</style>`;
 
     		init(
     			this,
@@ -414,14 +586,32 @@
     			instance$1,
     			create_fragment$1,
     			safe_not_equal,
-    			{}
+    			{ state: 0 }
     		);
 
     		if (options) {
     			if (options.target) {
     				insert_dev(options.target, this, options.anchor);
     			}
+
+    			if (options.props) {
+    				this.$set(options.props);
+    				flush();
+    			}
     		}
+    	}
+
+    	static get observedAttributes() {
+    		return ["state"];
+    	}
+
+    	get state() {
+    		return this.$$.ctx[0];
+    	}
+
+    	set state(state) {
+    		this.$set({ state });
+    		flush();
     	}
     }
 
@@ -435,31 +625,18 @@
     function create_fragment(ctx) {
     	let ha_card;
     	let octoprint_card_preview;
-    	let t0;
-    	let p;
-    	let b;
-    	let t1_value = /*state*/ ctx[0]?.attributes?.friendly_name + "";
-    	let t1;
-    	let t2;
-    	let t3_value = /*state*/ ctx[0]?.state + "";
-    	let t3;
+    	let t;
 
     	const block = {
     		c: function create() {
     			ha_card = element("ha-card");
     			octoprint_card_preview = element("octoprint-card-preview");
-    			t0 = space();
-    			p = element("p");
-    			b = element("b");
-    			t1 = text(t1_value);
-    			t2 = text(": ");
-    			t3 = text(t3_value);
+    			t = text("\n  Actions goes here!");
     			this.c = noop;
-    			add_location(octoprint_card_preview, file, 19, 2, 490);
-    			add_location(b, file, 20, 5, 522);
-    			add_location(p, file, 20, 2, 519);
+    			set_custom_element_data(octoprint_card_preview, "state", /*state*/ ctx[0]);
+    			add_location(octoprint_card_preview, file, 34, 2, 1608);
     			set_custom_element_data(ha_card, "class", "parent");
-    			add_location(ha_card, file, 18, 0, 463);
+    			add_location(ha_card, file, 33, 0, 1581);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -467,16 +644,12 @@
     		m: function mount(target, anchor) {
     			insert_dev(target, ha_card, anchor);
     			append_dev(ha_card, octoprint_card_preview);
-    			append_dev(ha_card, t0);
-    			append_dev(ha_card, p);
-    			append_dev(p, b);
-    			append_dev(b, t1);
-    			append_dev(p, t2);
-    			append_dev(p, t3);
+    			append_dev(ha_card, t);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*state*/ 1 && t1_value !== (t1_value = /*state*/ ctx[0]?.attributes?.friendly_name + "")) set_data_dev(t1, t1_value);
-    			if (dirty & /*state*/ 1 && t3_value !== (t3_value = /*state*/ ctx[0]?.state + "")) set_data_dev(t3, t3_value);
+    			if (dirty & /*state*/ 1) {
+    				set_custom_element_data(octoprint_card_preview, "state", /*state*/ ctx[0]);
+    			}
     		},
     		i: noop,
     		o: noop,
@@ -500,33 +673,67 @@
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("octoprint-card", slots, []);
     	
+    	
     	let { hass } = $$props;
-    	let { state } = $$props;
+    	let { state = {} } = $$props;
+    	let { entityMatch } = $$props;
     	let config = {};
 
     	function setConfig(conf = {}) {
     		config = Object.assign({}, conf);
+    		const entity = config.entity;
+
+    		$$invalidate(1, entityMatch = entity === null || entity === void 0
+    		? void 0
+    		: entity.substring(entity.lastIndexOf(".") + 1, entity.lastIndexOf("_")));
     	}
 
     	afterUpdate(() => {
     		if (hass) {
-    			$$invalidate(0, state = hass === null || hass === void 0
-    			? void 0
-    			: hass.states[config === null || config === void 0
+    			$$invalidate(0, state = {
+    				bedActual: hass.states[config === null || config === void 0
     				? void 0
-    				: config.entity]);
+    				: config.bedActual].state,
+    				bedTarget: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.bedTarget].state,
+    				toolActual: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.toolActual].state,
+    				toolTarget: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.toolTarget].state,
+    				currentState: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.currentState].state,
+    				timeElapsed: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.timeElapsed].state,
+    				timeRemaining: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.timeRemaining].state,
+    				jobPercentage: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.jobPercentage].state,
+    				printing: hass.states[config === null || config === void 0
+    				? void 0
+    				: config.printing].state
+    			});
+
+    			hass.callApi;
     		}
     	});
 
-    	const writable_props = ["hass", "state"];
+    	const writable_props = ["hass", "state", "entityMatch"];
 
     	Object_1.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<octoprint-card> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ("hass" in $$props) $$invalidate(1, hass = $$props.hass);
+    		if ("hass" in $$props) $$invalidate(2, hass = $$props.hass);
     		if ("state" in $$props) $$invalidate(0, state = $$props.state);
+    		if ("entityMatch" in $$props) $$invalidate(1, entityMatch = $$props.entityMatch);
     	};
 
     	$$self.$capture_state = () => ({
@@ -534,13 +741,15 @@
     		afterUpdate,
     		hass,
     		state,
+    		entityMatch,
     		config,
     		setConfig
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("hass" in $$props) $$invalidate(1, hass = $$props.hass);
+    		if ("hass" in $$props) $$invalidate(2, hass = $$props.hass);
     		if ("state" in $$props) $$invalidate(0, state = $$props.state);
+    		if ("entityMatch" in $$props) $$invalidate(1, entityMatch = $$props.entityMatch);
     		if ("config" in $$props) config = $$props.config;
     	};
 
@@ -548,13 +757,12 @@
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [state, hass, setConfig];
+    	return [state, entityMatch, hass, setConfig];
     }
 
     class OctoprintCard extends SvelteElement {
     	constructor(options) {
     		super();
-    		this.shadowRoot.innerHTML = `<style>p{color:red}</style>`;
 
     		init(
     			this,
@@ -566,18 +774,23 @@
     			instance,
     			create_fragment,
     			safe_not_equal,
-    			{ hass: 1, state: 0, setConfig: 2 }
+    			{
+    				hass: 2,
+    				state: 0,
+    				entityMatch: 1,
+    				setConfig: 3
+    			}
     		);
 
     		const { ctx } = this.$$;
     		const props = this.attributes;
 
-    		if (/*hass*/ ctx[1] === undefined && !("hass" in props)) {
+    		if (/*hass*/ ctx[2] === undefined && !("hass" in props)) {
     			console.warn("<octoprint-card> was created without expected prop 'hass'");
     		}
 
-    		if (/*state*/ ctx[0] === undefined && !("state" in props)) {
-    			console.warn("<octoprint-card> was created without expected prop 'state'");
+    		if (/*entityMatch*/ ctx[1] === undefined && !("entityMatch" in props)) {
+    			console.warn("<octoprint-card> was created without expected prop 'entityMatch'");
     		}
 
     		if (options) {
@@ -593,11 +806,11 @@
     	}
 
     	static get observedAttributes() {
-    		return ["hass", "state", "setConfig"];
+    		return ["hass", "state", "entityMatch", "setConfig"];
     	}
 
     	get hass() {
-    		return this.$$.ctx[1];
+    		return this.$$.ctx[2];
     	}
 
     	set hass(hass) {
@@ -614,8 +827,17 @@
     		flush();
     	}
 
+    	get entityMatch() {
+    		return this.$$.ctx[1];
+    	}
+
+    	set entityMatch(entityMatch) {
+    		this.$set({ entityMatch });
+    		flush();
+    	}
+
     	get setConfig() {
-    		return this.$$.ctx[2];
+    		return this.$$.ctx[3];
     	}
 
     	set setConfig(value) {

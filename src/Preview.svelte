@@ -1,29 +1,70 @@
 <svelte:options tag="octoprint-card-preview" />
 
 <script lang="ts">
+  import Time from "./Time.svelte";
   import type { IStates } from "./config";
+  import { afterUpdate } from "svelte";
 
   export let state: IStates = {};
+  export let image: string;
+  let timeElapsed;
+  let timeRemaining;
+
+  let mediaSource: string;
+  let streamWasSet: boolean;
+
+  afterUpdate(() => {
+    timeElapsed = state.timeElapsed && parseInt(state.timeElapsed);
+    timeRemaining = state.timeRemaining && parseInt(state.timeRemaining);
+    const stream = state.cameraStream?.replace(
+      "camera_proxy",
+      "camera_proxy_stream"
+    );
+    mediaSource = streamWasSet ? mediaSource : stream || image;
+  });
+
+  const toggleSource = () => {
+    streamWasSet = true;
+    const stream = state.cameraStream?.replace(
+      "camera_proxy",
+      "camera_proxy_stream"
+    );
+    mediaSource = mediaSource.includes("camera_proxy") ? image : stream;
+  };
 </script>
 
 <div class="preview">
   <b class="current-state">{state.currentState}</b>
   <b class="print-percentage">{state.jobPercentage}%</b>
-  <div class="tool">
-    <span>Tool:</span>
-    <b>{state.toolActual}°C / {state.toolTarget}°C</b>
+  <div class="content" on:click={toggleSource}>
+    <img src={mediaSource} alt="Representation or your 3D Printer" />
   </div>
-  <div class="bed">
-    <span>Bed:</span>
-    <b>{state.bedActual}°C / {state.bedTarget}°C</b>
-  </div>
-  <div class="elapsed">
-    <ha-icon icon="mdi:clock-start" />
-    <span>{state.timeElapsed} Elapsed</span>
-  </div>
-  <div class="remaining">
-    <ha-icon icon="mdi:clock-end" />
-    <span>{state.timeRemaining} Remaining</span>
+  <div class="progress" style="--percentage: {state.jobPercentage}%" />
+  <div class="sensors">
+    <div class="tool">
+      <b>
+        {state.toolActual?.value}{state.toolActual?.unit} /
+        {state.toolTarget?.value}{state.toolActual?.unit}
+      </b>
+      <span>Tool Temperatrue</span>
+    </div>
+    <div class="bed">
+      <b>
+        {state.bedActual?.value}{state.toolActual?.unit} /
+        {state.bedTarget?.value}{state.toolActual?.unit}
+      </b>
+      <span>Bed Temperature</span>
+    </div>
+    {#if timeElapsed && timeRemaining}
+      <div class="elapsed">
+        <Time bind:seconds={timeElapsed} />
+        <span>Elapsed</span>
+      </div>
+      <div class="remaining">
+        <Time bind:seconds={timeRemaining} />
+        <span>Remaining</span>
+      </div>
+    {/if}
   </div>
 </div>
 
@@ -32,7 +73,63 @@
     background: var(--primary-color);
     border-radius: var(--ha-card-border-radius, 4px)
       var(--ha-card-border-radius, 4px) 0 0;
-    padding: 4px;
     color: var(--text-primary-color);
+
+    display: grid;
+    grid-template-areas:
+      "state percentage"
+      "content content"
+      "progress progress"
+      "sensors sensors";
+  }
+  .current-state {
+    grid-area: state;
+    padding: 1rem;
+  }
+  .print-percentage {
+    grid-area: percentage;
+    text-align: right;
+    padding: 1rem;
+  }
+
+  .sensors {
+    display: flex;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    grid-area: sensors;
+  }
+  .sensors > div {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .sensors > div > span {
+    display: block;
+  }
+
+  .sensors > div + div {
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .content {
+    grid-area: content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  img {
+    max-width: 90%;
+    max-height: 300px;
+  }
+
+  .progress {
+    position: relative;
+    grid-area: progress;
+    height: 5px;
+    width: var(--percentage);
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: width 0.5s;
   }
 </style>

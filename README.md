@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <h1>Lovelace 3D Printer Card</h1>
+  <h2>Lovelace 3D Printer Card</h2>
   <strong>All your 3D Printer info in a single card!</strong>
 </p>
 

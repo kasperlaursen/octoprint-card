@@ -4,7 +4,7 @@
 
 <h3 align="center">Lovelace 3D Printer Card</h2>
 <p align="center">
-  <strong align="center">All your 3D Printer info in a single card!</strong>
+  <strong align="center">All your 3D Printer info in one place!</strong>
 </p>
 
 ---

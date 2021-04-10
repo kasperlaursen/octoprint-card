@@ -2,17 +2,19 @@
   <img height=200 src="https://user-images.githubusercontent.com/8472619/114278237-1320f700-9a2f-11eb-80d9-ac86238cccd5.png"/>
 </p>
 
-<h4 align="center">Lovelace 3D Printer Card</h2>
-<strong align="center">All your 3D Printer info in a single card!</strong>
+<h3 align="center">Lovelace 3D Printer Card</h2>
+<p align="center">
+  <strong align="center">All your 3D Printer info in a single card!</strong>
+</p>
 
 ---
 
 **⚠️ Work in progress, use at your own risk ⚠️**
 
 **Contents:**  
-[Introduction](#Introduction)  
-[Intallation](#Intallation)   
-[Properties](#Properties)  
+ - [Introduction](#Introduction)  
+ - [Intallation](#Intallation)   
+ - [Properties](#Properties)  
 
 # Introduction
 This lovelace card is created for the purpose of collecting all relevant data about your 3D Printer.  

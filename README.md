@@ -99,17 +99,17 @@ On the [project board](https://github.com/kasperlaursen/octoprint-card/projects/
 
 ### Mid term
 
-Custom actions based on Home Assistant Scripts.
+Custom actions based on Home Assistant Scripts.  
 Some sort of nice looking Temperature Charts.  
 Making a custom animated svg progress indicator resembling a printer printing a Benchy.
 
 ### Long term
 
-The current Octoprint integration in Home Assistant does not really seem complete to me.
+The current Octoprint integration in Home Assistant does not really seem complete to me.  
 I think there are a lot of possible improvements and additions. So in the long run i hope to be able to contribute to that as well, and update this Card to have even more functionality.
 
 Adding Printer Play/Pause/Stop actions.  
-Starting a print for existing g-code,
+Starting a print for existing g-code.
 
 # How to Contribute
 

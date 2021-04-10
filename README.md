@@ -16,6 +16,7 @@
 - [Introduction](#Introduction)
 - [Intallation](#Intallation)
 - [Properties](#Properties)
+- [Development](#Development)
 
 # Introduction
 
@@ -78,3 +79,38 @@ octoPrintUrl: http://192.168.50.116/
 | `imageUrl`      | `string` | Optional     | Path to image of your printer.                                |
 | `videoSource`   | `string` | Optional     | The entity_id for a camera                                    |
 | `octoPrintUrl`  | `string` | Optional     | An url for the link button (Meant for link to Octoprint UI)   |
+
+# Development
+
+I though I would give som technical background about the project, and also let you know how you can contribute.
+
+## Why Svelte?
+
+The most common framework used for Lovelace cards seems to be `lit-element` but I chose to jump on the [Svelte](https://svelte.dev) hype train and learn something different.
+
+This is my first "Real project" using Svelte and I think it is a simple and easy framework to use.
+
+## Goals
+
+### Short Term
+
+The project has just begun, and I have a lot of ideas for improvement!
+On the [project board](https://github.com/kasperlaursen/octoprint-card/projects/1) you can see the planed tasks for the v1 release!
+
+### Mid term
+
+Custom actions based on Home Assistant Scripts.
+Some sort of nice looking Temperature Charts.  
+Making a custom animated svg progress indicator resembling a printer printing a Benchy.
+
+### Long term
+
+The current Octoprint integration in Home Assistant does not really seem complete to me.
+I think there are a lot of possible improvements and additions. So in the long run i hope to be able to contribute to that as well, and update this Card to have even more functionality.
+
+Adding Printer Play/Pause/Stop actions.  
+Starting a print for existing g-code,
+
+# How to Contribute
+
+Coming Soon™

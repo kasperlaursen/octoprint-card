@@ -35,7 +35,7 @@ function serve() {
 export default {
   input: "src/main.ts",
   output: {
-    sourcemap: true,
+    sourcemap: !production,
     format: "umd",
     name: "OctoprintCard",
     file: "public/octoprint-card.js",

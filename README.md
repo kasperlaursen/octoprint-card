@@ -13,6 +13,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kasperlaursen/octoprint-card/graphs/commit-activity)
 ![Dependencies](https://img.shields.io/david/kasperlaursen/octoprint-card.svg)
 [![Tasks untill v1](https://img.shields.io/github/issues-search/kasperlaursen/octoprint-card?label=Tasks%20before%20v1%20release&query=is%3Aopen%20is%3Aissue%20project%3Akasperlaursen%2Foctoprint-card%2F1)](https://github.com/kasperlaursen/octoprint-card/projects/1)
+![GitHub last commit](https://img.shields.io/github/last-commit/kasperlaursen/octoprint-card)
 
 **⚠️ Work in progress, use at your own risk ⚠️**
 

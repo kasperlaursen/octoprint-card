@@ -32,7 +32,7 @@ For the design I have been heavily inspired by the awesome [vacuum-card](https:/
 
 ## Manual.
 
-1. Download the `octoprint-card.js` file from the `/public/` directory
+1. Download the `octoprint-card.js` file from the [Releases Page](https://github.com/kasperlaursen/octoprint-card/releases)
 2. Pload the file to your Home Assistant `config/local` folder
 3. Add a reference to the card to your lovelace instance  
    Go to `Configuration` → `Lovelace Dashboards` → `Resources Tab` → `Click Plus button`.

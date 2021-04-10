@@ -36,7 +36,7 @@ For the design I have been heavily inspired by the awesome [vacuum-card](https:/
 
 # Intallation
 
-## Hass (Not Ready Yet)
+## HACS (Not Ready Yet)
 
 ## Manual.
 

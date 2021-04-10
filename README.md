@@ -94,7 +94,7 @@ This is my first "Real project" using Svelte and I think it is a simple and easy
 
 ### Short Term
 
-The project has just begun, and I have a lot of ideas for improvement!
+The project has just begun, and I have a lot of ideas for improvement!  
 On the [project board](https://github.com/kasperlaursen/octoprint-card/projects/1) you can see the planed tasks for the v1 release!
 
 ### Mid term

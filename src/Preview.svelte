@@ -1,7 +1,8 @@
 <svelte:options tag="octoprint-card-preview" />
 
 <script lang="ts">
-  import Time from "./Time.svelte";
+  import Time from "./components/Time.svelte";
+  import Temperature from "./components/Temperature.svelte";
   import type { IStates } from "./config";
   import { afterUpdate } from "svelte";
 
@@ -41,20 +42,18 @@
   </div>
   <div class="progress" style="--percentage: {state.jobPercentage}%" />
   <div class="sensors">
-    <div class="tool">
-      <b>
-        {state.toolActual?.value}{state.toolActual?.unit} /
-        {state.toolTarget?.value}{state.toolActual?.unit}
-      </b>
-      <span>Tool Temperatrue</span>
-    </div>
-    <div class="bed">
-      <b>
-        {state.bedActual?.value}{state.toolActual?.unit} /
-        {state.bedTarget?.value}{state.toolActual?.unit}
-      </b>
-      <span>Bed Temperature</span>
-    </div>
+    <Temperature
+      cssClass="tool"
+      label="Tool Temperature"
+      actual={state.toolActual}
+      target={state.toolTarget}
+    />
+    <Temperature
+      cssClass="tool"
+      label="Bed Temperature"
+      actual={state.bedActual}
+      target={state.bedTarget}
+    />
     {#if timeElapsed && timeRemaining}
       <div class="elapsed">
         <Time bind:seconds={timeElapsed} />

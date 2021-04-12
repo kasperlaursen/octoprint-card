@@ -24,6 +24,7 @@
 - [Intallation](#Intallation)
 - [Properties](#Properties)
 - [Development](#Development)
+- [How to Contribute ❤️ ](#how-to-contribute)
 
 # Introduction
 
@@ -51,7 +52,7 @@ For the design I have been heavily inspired by the awesome [vacuum-card](https:/
 
 There are currently no Configuration UI, copy the yaml from below to and modify the properties to fit your installation.
 
-**Configuration example:**
+### Configuration example
 
 ```yaml
 type: "custom:octoprint-card"
@@ -120,4 +121,44 @@ Starting a print for existing g-code.
 
 # How to Contribute
 
-Coming Soon™
+I Would love to wee what ideas you have. Any contributions are happily welcomed!
+
+1. Fork the repo.
+2. Make your changes on your fork ([How to run locally](#Running-locally))
+3. Open a Pull Request from your fork against the main branch.
+4. Remember to add a nice description of what your changes are intended to do.
+5. I will get back to you as soon as possible!
+
+## Running locally
+
+1. Clone this repository to your local machine
+
+```
+git clone https://github.com/kasperlaursen/octoprint-card.git
+```
+
+2. Go to the folder
+
+```
+cd octoprint-card
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+3. Start the local development server, which will recompile the code on file changes.
+
+```
+npm run dev
+```
+
+4. Add the dev card to your Lovelace resources using the url `http://localhost:5000/octoprint-card-dev.js`
+
+5. Add the card to your dashboard with `type: 'custom:octoprint-card-dev'` and the rest of [the config](#Configuration-example)
+
+## Prerequisite
+
+To run the project locally you need to have [node.js](https://nodejs.org/en/) installed on your machine.

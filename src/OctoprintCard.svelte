@@ -1,4 +1,4 @@
-<svelte:options tag="octoprint-card" />
+<svelte:options tag="opc" />
 
 <script lang="ts">
   import Preview from "./Preview.svelte"; // Needs import to work!
@@ -54,7 +54,7 @@
 </script>
 
 <ha-card class="parent">
-  <octoprint-card-preview {state} image={config.imageUrl} />
+  <opc-preview {state} image={config.imageUrl} />
   <div class="actions">
     {#if config.octoPrintUrl}
       <a href={config.octoPrintUrl} target="_blank"

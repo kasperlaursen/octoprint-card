@@ -1,4 +1,4 @@
-<svelte:options tag="octoprint-card-preview" />
+<svelte:options tag="opc-preview" />
 
 <script lang="ts">
   import Time from "./components/Time.svelte";

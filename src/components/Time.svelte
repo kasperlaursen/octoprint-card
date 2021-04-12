@@ -1,4 +1,4 @@
-<svelte:options tag="octoprint-card-time" />
+<svelte:options tag="opc-time" />
 
 <script lang="ts">
   import { afterUpdate } from "svelte";

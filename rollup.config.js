@@ -4,6 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
+import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -38,9 +39,14 @@ export default {
     sourcemap: !production,
     format: "umd",
     name: "OctoprintCard",
-    file: "public/octoprint-card.js",
+    file: production
+      ? "public/octoprint-card.js"
+      : "public/octoprint-card-dev.js",
   },
   plugins: [
+    replace({
+      opc: production ? "octoprint-card" : "octoprint-card-dev",
+    }),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),
       compilerOptions: {

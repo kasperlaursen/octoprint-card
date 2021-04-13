@@ -45,7 +45,7 @@ export default {
   },
   plugins: [
     replace({
-      opc: production ? "octoprint-card" : "octoprint-card-dev",
+      "op-c": production ? "octoprint-card" : "octoprint-card-dev",
     }),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),

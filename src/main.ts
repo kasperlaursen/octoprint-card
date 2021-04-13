@@ -9,7 +9,7 @@ declare global {
 
 window.customCards = window.customCards || [];
 window.customCards.push({
-  type: "opc",
+  type: "op-c",
   name: "Octoprint Card",
   preview: false,
   description: "Octoprint card",

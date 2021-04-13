@@ -1,9 +1,9 @@
-import type { IStates, ITemperatureState } from "./config";
+import type { IConfig, IStates, ITemperatureState } from "./config";
 import type { HomeAssistant } from "custom-card-helpers";
 
 export const getStateFromHass = (
   hass: HomeAssistant,
-  config: { [key: string]: any }
+  config: IConfig
 ): IStates => {
   return {
     bedActual: getTemperatureState(hass, config?.bedActual),

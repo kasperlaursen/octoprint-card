@@ -5,13 +5,14 @@
 
   import type { HomeAssistant } from "custom-card-helpers/dist/types";
   import { afterUpdate } from "svelte";
-  import type { IStates } from "./config";
+  import type { IConfig, IStates } from "./config";
   import { getStateFromHass } from "./state-helper";
 
   export let hass: HomeAssistant;
   export let state: IStates = {};
-  let config: { [key: string]: any } = {};
+  let config: IConfig = {};
 
+  // Home Assistant will call this with the config object!
   export function setConfig(conf = {}) {
     config = { ...conf };
   }

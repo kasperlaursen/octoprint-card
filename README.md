@@ -26,7 +26,7 @@
 [💻 Development](#Development)  
 [⌨️ How to Contribute](#how-to-contribute)  
 
-# Introduction
+# 🚪 Introduction
 
 This lovelace card is created for the purpose of collecting all relevant data about your 3D Printer.  
 For the design I have been heavily inspired by the awesome [vacuum-card](https://github.com/denysdovhan/vacuum-card) by [Denys Dovhan](https://github.com/denysdovhan).
@@ -35,7 +35,7 @@ For the design I have been heavily inspired by the awesome [vacuum-card](https:/
 | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | ![image](https://user-images.githubusercontent.com/8472619/114276747-50ce5180-9a28-11eb-99d5-2f921a8aba67.png) | ![Screenshot 2021-04-10 at 17 58 54](https://user-images.githubusercontent.com/8472619/114276753-5deb4080-9a28-11eb-8ee9-3ce6b31cec29.png) | ![Screenshot 2021-04-10 at 17 59 01](https://user-images.githubusercontent.com/8472619/114276763-66437b80-9a28-11eb-9cc6-1585f46b1cc5.png) |
 
-# Intallation
+# 💽 Intallation
 
 ## HACS (Not Ready Yet)
 
@@ -70,7 +70,7 @@ videoSource: camera.prusa_3d_printer
 octoPrintUrl: http://192.168.50.116/
 ```
 
-# Properties
+# 📖 Properties
 
 | Name            |   Type   | Default      | Description                                                   |
 | --------------- | :------: | ------------ | ------------------------------------------------------------- |
@@ -88,7 +88,7 @@ octoPrintUrl: http://192.168.50.116/
 | `videoSource`   | `string` | Optional     | The entity_id for a camera                                    |
 | `octoPrintUrl`  | `string` | Optional     | An url for the link button (Meant for link to Octoprint UI)   |
 
-# Development
+# 💻 Development
 
 I though I would give som technical background about the project, and also let you know how you can contribute.
 
@@ -119,7 +119,7 @@ I think there are a lot of possible improvements and additions. So in the long r
 Adding Printer Play/Pause/Stop actions.  
 Starting a print for existing g-code.
 
-# How to Contribute
+# ⌨️ How to Contribute
 
 I Would love to wee what ideas you have. Any contributions are happily welcomed!
 

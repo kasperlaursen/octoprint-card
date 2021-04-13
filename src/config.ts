@@ -4,7 +4,7 @@ export interface IStates {
   toolActual?: ITemperatureState;
   toolTarget?: ITemperatureState;
   currentState?: string;
-  timeElapsed?: string;
+  timeElapsed?: number;
   timeRemaining?: string;
   jobPercentage?: string;
   printing?: string;

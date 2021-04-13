@@ -5,7 +5,7 @@ export interface IStates {
   toolTarget?: ITemperatureState;
   currentState?: string;
   timeElapsed?: number;
-  timeRemaining?: string;
+  timeRemaining?: number;
   jobPercentage?: string;
   printing?: string;
   cameraStream?: string;

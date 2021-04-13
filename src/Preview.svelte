@@ -15,8 +15,8 @@
   let streamWasSet: boolean;
 
   afterUpdate(() => {
-    timeElapsed = state.timeElapsed && parseInt(state.timeElapsed);
-    timeRemaining = state.timeRemaining && parseInt(state.timeRemaining);
+    timeElapsed = state.timeElapsed;
+    timeRemaining = state.timeRemaining;
     const stream = getStreamUrl(state.cameraStream);
     mediaSource = streamWasSet ? mediaSource : stream || image;
   });
@@ -28,7 +28,7 @@
   };
 
   const getStreamUrl = (url: string) =>
-    url.replace("camera_proxy", "camera_proxy_stream");
+    url?.replace("camera_proxy", "camera_proxy_stream");
 </script>
 
 <div class="preview">

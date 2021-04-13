@@ -20,11 +20,11 @@
 
 **Contents:**
 
-- [Introduction](#Introduction)
-- [Intallation](#Intallation)
-- [Properties](#Properties)
-- [Development](#Development)
-- [How to Contribute ❤️ ](#how-to-contribute)
+[🚪 Introduction](#Introduction)  
+[💽 Intallation](#Intallation)  
+[📖 Properties](#Properties)  
+[💻 Development](#Development)  
+[⌨️ How to Contribute](#how-to-contribute)  
 
 # Introduction
 

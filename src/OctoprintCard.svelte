@@ -6,6 +6,7 @@
   import type { HomeAssistant } from "custom-card-helpers/dist/types";
   import { afterUpdate } from "svelte";
   import type { IStates } from "./config";
+  import { getStateFromHass } from "./state-helper";
 
   export let hass: HomeAssistant;
   export let state: IStates = {};
@@ -17,31 +18,7 @@
 
   afterUpdate(() => {
     if (hass) {
-      state = {
-        bedActual: {
-          value: hass.states[config?.bedActual].state,
-          unit: hass.states[config?.bedActual].attributes.unit_of_measurement,
-        },
-        bedTarget: {
-          value: hass.states[config?.bedTarget].state,
-          unit: hass.states[config?.bedTarget].attributes.unit_of_measurement,
-        },
-        toolActual: {
-          value: hass.states[config?.toolActual].state,
-          unit: hass.states[config?.toolActual].attributes.unit_of_measurement,
-        },
-        toolTarget: {
-          value: hass.states[config?.toolTarget].state,
-          unit: hass.states[config?.toolTarget].attributes.unit_of_measurement,
-        },
-        currentState: hass.states[config?.currentState].state,
-        timeElapsed: hass.states[config?.timeElapsed].state,
-        timeRemaining: hass.states[config?.timeRemaining].state,
-        jobPercentage: hass.states[config?.jobPercentage].state,
-        printing: hass.states[config?.printing].state,
-        cameraStream:
-          hass.states[config?.videoSource].attributes.entity_picture,
-      };
+      state = getStateFromHass(hass, config);
       hass.callApi;
     }
   });

@@ -29,15 +29,15 @@
   <op-c-preview {state} image={config.imageUrl} />
   <div class="actions">
     {#if config.octoPrintUrl}
-      <a href={config.octoPrintUrl} target="_blank"
-        ><ha-icon icon="mdi:link-variant" /></a
-      >
+      <a href={config.octoPrintUrl} target="_blank" title="Link to Web UI">
+        <ha-icon icon="mdi:link-variant" />
+      </a>
     {/if}
   </div>
 </ha-card>
 
 <style>
   .actions {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 </style>

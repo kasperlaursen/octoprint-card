@@ -1,4 +1,4 @@
-<svelte:options tag="opc-preview" />
+<svelte:options tag="op-c-preview" />
 
 <script lang="ts">
   import Time from "./components/Time.svelte";

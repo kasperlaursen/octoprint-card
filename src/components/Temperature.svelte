@@ -1,4 +1,4 @@
-<svelte:options tag="opc-temperature" />
+<svelte:options tag="op-c-temperature" />
 
 <script lang="ts">
   export let actual: { value: string; unit: string };

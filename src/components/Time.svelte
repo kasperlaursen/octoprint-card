@@ -1,4 +1,4 @@
-<svelte:options tag="opc-time" />
+<svelte:options tag="op-c-time" />
 
 <script lang="ts">
   import { afterUpdate } from "svelte";

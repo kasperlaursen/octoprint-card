@@ -9,16 +9,10 @@
 
   export let hass: HomeAssistant;
   export let state: IStates = {};
-  export let entityMatch;
   let config: { [key: string]: any } = {};
 
   export function setConfig(conf = {}) {
     config = { ...conf };
-    const entity = config.entity;
-    entityMatch = entity?.substring(
-      entity.lastIndexOf(".") + 1,
-      entity.lastIndexOf("_")
-    );
   }
 
   afterUpdate(() => {

@@ -17,21 +17,18 @@
   afterUpdate(() => {
     timeElapsed = state.timeElapsed && parseInt(state.timeElapsed);
     timeRemaining = state.timeRemaining && parseInt(state.timeRemaining);
-    const stream = state.cameraStream?.replace(
-      "camera_proxy",
-      "camera_proxy_stream"
-    );
+    const stream = getStreamUrl(state.cameraStream);
     mediaSource = streamWasSet ? mediaSource : stream || image;
   });
 
   const toggleSource = () => {
     streamWasSet = true;
-    const stream = state.cameraStream?.replace(
-      "camera_proxy",
-      "camera_proxy_stream"
-    );
+    const stream = getStreamUrl(state.cameraStream);
     mediaSource = mediaSource.includes("camera_proxy") ? image : stream;
   };
+
+  const getStreamUrl = (url: string) =>
+    url.replace("camera_proxy", "camera_proxy_stream");
 </script>
 
 <div class="preview">

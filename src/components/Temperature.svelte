@@ -1,5 +1,3 @@
-<svelte:options tag="op-c-temperature" />
-
 <script lang="ts">
   export let actual: { value: string; unit: string };
   export let target: { value: string; unit: string };
@@ -20,6 +18,14 @@
   {/if}
 
   {#if label}
-    <span>{label}</span>
+    <div>{label}</div>
   {/if}
 </div>
+
+<style>
+  .temperature {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+  }
+</style>

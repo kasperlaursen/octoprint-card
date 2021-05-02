@@ -1,15 +1,14 @@
-<svelte:options tag="op-c" />
+<svelte:options tag="tag-name" />
 
 <script lang="ts">
   import Preview from "./Preview.svelte"; // Needs import to work!
 
   import type { HomeAssistant } from "custom-card-helpers/dist/types";
   import { afterUpdate } from "svelte";
-  import type { IConfig, IStates } from "./config";
-  import { getStateFromHass } from "./state-helper";
+  import type { IConfig } from "./config";
+  import { setStoresFromHass } from "./state-helper";
 
   export let hass: HomeAssistant;
-  export let state: IStates = {};
   let config: IConfig = {};
 
   // Home Assistant will call this with the config object!
@@ -19,14 +18,14 @@
 
   afterUpdate(() => {
     if (hass) {
-      state = getStateFromHass(hass, config);
+      setStoresFromHass(hass, config);
       hass.callApi;
     }
   });
 </script>
 
 <ha-card class="parent">
-  <op-c-preview {state} image={config.imageUrl} />
+  <Preview image={config.imageUrl} />
   <div class="actions">
     {#if config.octoPrintUrl}
       <a href={config.octoPrintUrl} target="_blank" title="Link to Web UI">

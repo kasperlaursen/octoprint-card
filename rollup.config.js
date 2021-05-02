@@ -5,8 +5,14 @@ import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import replace from "@rollup/plugin-replace";
+import css from "rollup-plugin-css-only";
 
 const production = !process.env.ROLLUP_WATCH;
+
+const MAIN_COMPONENT_NAME = "OctoprintCard";
+const MAIN_COMPONENT_REGEX = /OctoprintCard\.svelte$/;
+const TAG_NAME = production ? "octoprint-card" : "octoprint-card-dev";
+const FILE_NAME = `${TAG_NAME}.js`;
 
 function serve() {
   let server;
@@ -38,14 +44,12 @@ export default {
   output: {
     sourcemap: !production,
     format: "umd",
-    name: "OctoprintCard",
-    file: production
-      ? "public/octoprint-card.js"
-      : "public/octoprint-card-dev.js",
+    name: MAIN_COMPONENT_NAME,
+    file: `public/${FILE_NAME}`,
   },
   plugins: [
     replace({
-      "op-c": production ? "octoprint-card" : "octoprint-card-dev",
+      "tag-name": TAG_NAME,
     }),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),
@@ -54,10 +58,50 @@ export default {
         dev: !production,
         customElement: true,
       },
+      emitCss: true,
+      include: MAIN_COMPONENT_REGEX,
+      preprocess: sveltePreprocess(),
+    }),
+    svelte({
+      preprocess: sveltePreprocess({ sourceMap: !production }),
+      compilerOptions: {
+        // enable run-time checks when not in production
+        dev: !production,
+        customElement: false,
+      },
+      emitCss: true,
+      exclude: MAIN_COMPONENT_REGEX,
+      preprocess: sveltePreprocess(),
     }),
     // we'll extract any component CSS out into
     // a separate file - better for performance
-    // css({ output: "octoprint-card.css" }),
+    // css(),
+
+    // HACK! Inject nested CSS into custom element shadow root
+    css({
+      output(nestedCSS, styleNodes, bundle) {
+        console.log("Applying CSS Hack!");
+        const code = bundle[FILE_NAME].code;
+        const escapedCssChunk = nestedCSS
+          .replace(/\n/g, "")
+          .replace(/[\\"']/g, "\\$&")
+          .replace(/\u0000/g, "\\0");
+
+        const matches = code.match(/<style>(.*)<\/style>/);
+
+        if (matches && matches[1]) {
+          const style = matches[1];
+          bundle[FILE_NAME].code = code.replace(
+            style,
+            `${style}${escapedCssChunk}`
+          );
+        } else {
+          throw new Error(
+            "Couldn't shadowRoot <style> tag for injecting styles"
+          );
+        }
+      },
+    }),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In

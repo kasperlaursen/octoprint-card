@@ -16,6 +16,11 @@ export interface ITemperatureState {
   unit: string;
 }
 
+export interface IUnitTemperature {
+  actual: ITemperatureState;
+  target: ITemperatureState;
+}
+
 /**
  * The config object expected form Home Assistant
  */

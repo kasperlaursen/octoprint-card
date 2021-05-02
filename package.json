@@ -5,7 +5,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --cors --no-clear",
+    "start": "sirv public -c",
     "validate": "svelte-check"
   },
   "devDependencies": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "@rollup/plugin-replace": "^2.4.2",
     "custom-card-helpers": "^1.7.0",
+    "rollup-plugin-import-css": "^2.0.1",
     "sirv-cli": "^1.0.0"
   }
 }

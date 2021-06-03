@@ -2,7 +2,6 @@
 </script>
 
 <div class="sensors">
-  Sen:
   <slot>Goes here!</slot>
 </div>
 

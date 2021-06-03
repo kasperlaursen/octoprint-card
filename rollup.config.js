@@ -15,6 +15,7 @@ const TAG_NAME = production ? "octoprint-card" : "octoprint-card-dev";
 const FILE_NAME = `${TAG_NAME}.js`;
 
 function serve() {
+  console.log("serve");
   let server;
 
   function toExit() {
@@ -23,6 +24,7 @@ function serve() {
 
   return {
     writeBundle() {
+      console.log("writeBundle");
       if (server) return;
       server = require("child_process").spawn(
         "npm",
@@ -39,18 +41,28 @@ function serve() {
   };
 }
 
+function log(text) {
+  console.log(text);
+}
+
 export default {
   input: "src/main.ts",
   output: {
-    sourcemap: !production,
+    sourcemap: () => {
+      console.log("default");
+      return !production;
+    },
     format: "umd",
     name: MAIN_COMPONENT_NAME,
     file: `public/${FILE_NAME}`,
   },
   plugins: [
+    log("replace!!"),
     replace({
       "tag-name": TAG_NAME,
+      preventAssignment: true,
     }),
+    log("svelte!!"),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),
       compilerOptions: {
@@ -62,6 +74,7 @@ export default {
       include: MAIN_COMPONENT_REGEX,
       preprocess: sveltePreprocess(),
     }),
+    log("svelte2!!"),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),
       compilerOptions: {
@@ -73,10 +86,8 @@ export default {
       exclude: MAIN_COMPONENT_REGEX,
       preprocess: sveltePreprocess(),
     }),
-    // we'll extract any component CSS out into
-    // a separate file - better for performance
-    // css(),
 
+    log("css!!"),
     // HACK! Inject nested CSS into custom element shadow root
     css({
       output(nestedCSS, styleNodes, bundle) {
@@ -102,6 +113,7 @@ export default {
         }
       },
     }),
+    log("resolve!!"),
 
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
@@ -117,7 +129,7 @@ export default {
       sourceMap: !production,
       inlineSources: !production,
     }),
-
+    log("SOMETHING!!"),
     // In dev mode, call `npm run start` once
     // the bundle has been generated
     !production && serve(),

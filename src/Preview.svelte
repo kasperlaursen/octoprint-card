@@ -1,70 +1,66 @@
-<svelte:options tag="opc-preview" />
-
 <script lang="ts">
-  import Time from "./components/Time.svelte";
+  import {
+    timeElapsed,
+    timeRemaining,
+    bed,
+    tool,
+    jobPercentage,
+    printerState,
+    cameraStream,
+  } from "./stores";
+  import Sensors from "./components/Sensors.svelte";
+  import TimeSensor from "./components/TimeSensor.svelte";
   import Temperature from "./components/Temperature.svelte";
-  import type { IStates } from "./config";
-  import { afterUpdate } from "svelte";
 
-  export let state: IStates = {};
   export let image: string;
-  let timeElapsed;
-  let timeRemaining;
+  let stream: string;
 
   let mediaSource: string;
   let streamWasSet: boolean;
 
-  afterUpdate(() => {
-    timeElapsed = state.timeElapsed && parseInt(state.timeElapsed);
-    timeRemaining = state.timeRemaining && parseInt(state.timeRemaining);
-    const stream = state.cameraStream?.replace(
-      "camera_proxy",
-      "camera_proxy_stream"
-    );
+  cameraStream.subscribe((value) => {
+    stream = value?.replace("camera_proxy", "camera_proxy_stream");
     mediaSource = streamWasSet ? mediaSource : stream || image;
   });
 
   const toggleSource = () => {
     streamWasSet = true;
-    const stream = state.cameraStream?.replace(
-      "camera_proxy",
-      "camera_proxy_stream"
-    );
-    mediaSource = mediaSource.includes("camera_proxy") ? image : stream;
+    mediaSource = mediaSource === stream ? image : stream;
   };
 </script>
 
 <div class="preview">
-  <b class="current-state">{state.currentState}</b>
-  <b class="print-percentage">{state.jobPercentage}%</b>
+  <b class="current-state">{$printerState}</b>
+  <b class="print-percentage">{$jobPercentage ? `${$jobPercentage}%` : ""}</b>
   <div class="content" on:click={toggleSource}>
     <img src={mediaSource} alt="Representation or your 3D Printer" />
   </div>
-  <div class="progress" style="--percentage: {state.jobPercentage}%" />
-  <div class="sensors">
+  <div
+    class="progress"
+    style="--percentage: {$jobPercentage ? `${$jobPercentage}%` : '0px'}"
+  />
+  <Sensors>
     <Temperature
       cssClass="tool"
       label="Tool Temperature"
-      actual={state.toolActual}
-      target={state.toolTarget}
+      actual={$tool?.actual}
+      target={$tool?.target}
     />
     <Temperature
       cssClass="tool"
       label="Bed Temperature"
-      actual={state.bedActual}
-      target={state.bedTarget}
+      actual={$bed?.actual}
+      target={$bed?.target}
     />
-    {#if timeElapsed && timeRemaining}
-      <div class="elapsed">
-        <Time bind:seconds={timeElapsed} />
-        <span>Elapsed</span>
-      </div>
-      <div class="remaining">
-        <Time bind:seconds={timeRemaining} />
-        <span>Remaining</span>
-      </div>
+    {#if $timeElapsed || $timeRemaining}
+      <TimeSensor cssClass="elapsed" seconds={$timeElapsed} label={"Elapsed"} />
+      <TimeSensor
+        cssClass="remaining"
+        seconds={$timeRemaining}
+        label={"Remaining"}
+      />
     {/if}
-  </div>
+  </Sensors>
 </div>
 
 <style>
@@ -89,25 +85,6 @@
     grid-area: percentage;
     text-align: right;
     padding: 1rem;
-  }
-
-  .sensors {
-    display: flex;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    grid-area: sensors;
-  }
-  .sensors > div {
-    padding: 1rem;
-    text-align: center;
-    flex-grow: 1;
-  }
-
-  .sensors > div > span {
-    display: block;
-  }
-
-  .sensors > div + div {
-    border-left: 1px solid rgba(255, 255, 255, 0.4);
   }
 
   .content {

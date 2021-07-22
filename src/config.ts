@@ -1,12 +1,40 @@
 export interface IStates {
-  bedActual?: { value: string; unit: string };
-  bedTarget?: { value: string; unit: string };
-  toolActual?: { value: string; unit: string };
-  toolTarget?: { value: string; unit: string };
+  bedActual?: ITemperatureState;
+  bedTarget?: ITemperatureState;
+  toolActual?: ITemperatureState;
+  toolTarget?: ITemperatureState;
+  currentState?: string;
+  timeElapsed?: number;
+  timeRemaining?: number;
+  jobPercentage?: string;
+  printing?: string;
+  cameraStream?: string;
+}
+
+export interface ITemperatureState {
+  value: string;
+  unit: string;
+}
+
+export interface IUnitTemperature {
+  actual: ITemperatureState;
+  target: ITemperatureState;
+}
+
+/**
+ * The config object expected form Home Assistant
+ */
+export interface IConfig {
+  bedActual?: string;
+  bedTarget?: string;
+  toolActual?: string;
+  toolTarget?: string;
   currentState?: string;
   timeElapsed?: string;
   timeRemaining?: string;
   jobPercentage?: string;
   printing?: string;
-  cameraStream?: string;
+  imageUrl?: string;
+  videoSource?: string;
+  octoPrintUrl?: string;
 }

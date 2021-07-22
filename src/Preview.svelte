@@ -35,7 +35,10 @@
   <div class="content" on:click={toggleSource}>
     <img src={mediaSource} alt="Representation or your 3D Printer" />
   </div>
-  <div class="progress" style="--percentage: {$jobPercentage}%" />
+  <div
+    class="progress"
+    style="--percentage: {$jobPercentage ? `${$jobPercentage}%` : '0px'}"
+  />
   <Sensors>
     <Temperature
       cssClass="tool"

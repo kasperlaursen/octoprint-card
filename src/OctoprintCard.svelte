@@ -39,4 +39,7 @@
   .actions {
     padding: 1rem;
   }
+  .actions a {
+    color: var(--primary-color);
+  }
 </style>

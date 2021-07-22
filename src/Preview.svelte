@@ -31,7 +31,7 @@
 
 <div class="preview">
   <b class="current-state">{$printerState}</b>
-  <b class="print-percentage">{$jobPercentage}%</b>
+  <b class="print-percentage">{$jobPercentage ? `${$jobPercentage}%` : ""}</b>
   <div class="content" on:click={toggleSource}>
     <img src={mediaSource} alt="Representation or your 3D Printer" />
   </div>

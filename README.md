@@ -45,7 +45,7 @@ For the design I have been heavily inspired by the awesome [vacuum-card](https:/
 2. Upload the file to your Home Assistant `config/local` folder
 3. Add a reference to the card to your lovelace instance  
    Go to `Configuration` → `Lovelace Dashboards` → `Resources Tab` → `Click Plus button`.  
-   **Url:** `/local/vacuum-card.js`  
+   **Url:** `/local/octoprint-card.js`  
    **Resource type:** `JavaScript Module`  
    _Note: If you do not see the Resources Tab, you will need to enable Advanced Mode in your User Profile_
 4. Add the custom:octoprint-card to Lovelace UI as you normally would!

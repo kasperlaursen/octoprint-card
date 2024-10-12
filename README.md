@@ -1,3 +1,8 @@
+> [!WARNING]
+> **This repository is archived**  
+> Unfortunately, due to time constraints, this project is no longer maintained.  
+> Thank you for your interest and support.
+
 <p align="center">
   <img height=200 src="https://user-images.githubusercontent.com/8472619/114278237-1320f700-9a2f-11eb-80d9-ac86238cccd5.png"/>
 </p>
@@ -9,12 +14,7 @@
 
 ---
 
-[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/kasperlaursen/octoprint-card?include_prereleases)](https://GitHub.com/kasperlaursen/octoprint-card/releases/)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kasperlaursen/octoprint-card/graphs/commit-activity)
-![Dependencies](https://img.shields.io/david/kasperlaursen/octoprint-card.svg)
-[![Tasks untill v1](https://img.shields.io/github/issues-search/kasperlaursen/octoprint-card?label=Tasks%20before%20v1%20release&query=is%3Aopen%20is%3Aissue%20project%3Akasperlaursen%2Foctoprint-card%2F1)](https://github.com/kasperlaursen/octoprint-card/projects/1)
-![GitHub last commit](https://img.shields.io/github/last-commit/kasperlaursen/octoprint-card)
-![Svelte](https://img.shields.io/badge/Made%20with-Svelte-orange)
+<img src="https://img.shields.io/badge/status-archived-red.svg" alt="Status: Archived">
 
 **⚠️ Work in progress, use at your own risk ⚠️**
 
